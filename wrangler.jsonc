@@ -1,15 +1,7 @@
 {
   "name": "www",
-  "main": "src/worker.js",
   "compatibility_date": "2026-07-16",
   "assets": {
-    "directory": "./public",
-    "binding": "ASSETS"
-  },
-  "send_email": [
-    {
-      "name": "CONTACT_EMAIL",
-      "destination_address": "ping@mostest.com"
-    }
-  ]
+    "directory": "./public"
+  }
 }
