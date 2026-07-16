@@ -9,7 +9,7 @@
   "send_email": [
     {
       "name": "CONTACT_EMAIL",
-      "destination_address": "contactus@mostest.com"
+      "destination_address": "ping@mostest.com"
     }
   ]
 }

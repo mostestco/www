@@ -1,7 +1,7 @@
 import { EmailMessage } from "cloudflare:email";
 
-const DEST = "contactus@mostest.com";
-const FROM = "contactus@mostest.com";
+const DEST = "ping@mostest.com";
+const FROM = "ping@mostest.com";
 
 export default {
   async fetch(request, env) {
@@ -46,7 +46,7 @@ async function handleContact(request, env) {
     await env.CONTACT_EMAIL.send(new EmailMessage(FROM, DEST, raw));
   } catch (err) {
     console.log("send failed:", err.message);
-    return json({ ok: false, error: "Could not send right now. Email contactus@mostest.com directly." }, 502);
+    return json({ ok: false, error: "Could not send right now. Email ping@mostest.com directly." }, 502);
   }
   return json({ ok: true });
 }
