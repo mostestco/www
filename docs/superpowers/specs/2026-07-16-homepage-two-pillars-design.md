@@ -15,7 +15,7 @@ and Ventures are peers.
 
 ### Hero (umbrella-voiced, no personal name)
 
-- Eyebrow "Saint Charles, Missouri" stays.
+- The "Saint Charles, Missouri" eyebrow is removed.
 - H1: "A family of practices and products, run under one roof."
 - Subhead: "Mostest is two things operated as one: an advisory practice serving
   executive teams, boards, and investors, and a venture portfolio of products
