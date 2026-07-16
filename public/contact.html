@@ -73,7 +73,7 @@ input::placeholder,textarea::placeholder{color:#6B5F86}
           var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
           var data = await res.json();
           if (!data.success) throw new Error();
-          form.hidden = true;
+          form.style.display = 'none';
           document.getElementById('sent-msg').hidden = false;
         } catch (ex) {
           err.textContent = ex.message || 'Could not send right now. Email ping@mostest.com directly.';
