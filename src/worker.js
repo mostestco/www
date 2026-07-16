@@ -1,7 +1,9 @@
 import { EmailMessage } from "cloudflare:email";
 
+// ponytail: send_email can only target a verified external mailbox, so
+// contactus@mostest.com is the public face and DEST is where it lands
 const DEST = "matthew@porterhome.com";
-const FROM = "contact@mostest.com";
+const FROM = "contactus@mostest.com";
 
 export default {
   async fetch(request, env) {
@@ -46,7 +48,7 @@ async function handleContact(request, env) {
     await env.CONTACT_EMAIL.send(new EmailMessage(FROM, DEST, raw));
   } catch (err) {
     console.log("send failed:", err.message);
-    return json({ ok: false, error: "Could not send right now. Email matthew@porterhome.com directly." }, 502);
+    return json({ ok: false, error: "Could not send right now. Email contactus@mostest.com directly." }, 502);
   }
   return json({ ok: true });
 }
