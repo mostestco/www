@@ -1,7 +1,14 @@
 {
   "name": "www",
+  "main": "src/worker.js",
   "compatibility_date": "2026-07-16",
   "assets": {
-    "directory": "./public"
-  }
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "mostest.com", "custom_domain": true },
+    { "pattern": "www.mostest.com", "custom_domain": true }
+  ]
 }
