@@ -46,6 +46,7 @@ input::placeholder,textarea::placeholder{color:#6B5F86}
         <p style="margin:0;font-size:15.5px;line-height:1.6;color:#C6BDD8">Thank you. You will get a direct reply, usually within one business day.</p>
       </div>
       <form id="contact-form" style="display:flex;flex-direction:column;gap:18px;max-width:560px">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
         <div style="display:flex;flex-direction:column;gap:6px">
           <label for="c-name" style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#8E84A6">Name</label>
           <input id="c-name" name="name" type="text" required class="field">
@@ -59,13 +60,24 @@ input::placeholder,textarea::placeholder{color:#6B5F86}
           <textarea id="c-msg" name="message" rows="5" required placeholder="A few sentences is enough." class="field" style="resize:vertical"></textarea>
         </div>
         <button type="submit" class="send">Send</button>
+        <p id="send-error" hidden style="margin:0;font-size:15px;color:#F08CA8"></p>
       </form>
       <script>
-      // ponytail: front-end only, matching the design's DCLogic; wire to a form backend before launch
-      document.getElementById('contact-form').addEventListener('submit', function (e) {
+      document.getElementById('contact-form').addEventListener('submit', async function (e) {
         e.preventDefault();
-        this.hidden = true;
-        document.getElementById('sent-msg').hidden = false;
+        var form = this, btn = form.querySelector('.send'), err = document.getElementById('send-error');
+        btn.disabled = true; btn.textContent = 'Sending…'; err.hidden = true;
+        try {
+          var res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
+          var data = await res.json();
+          if (!data.ok) throw new Error(data.error);
+          form.hidden = true;
+          document.getElementById('sent-msg').hidden = false;
+        } catch (ex) {
+          err.textContent = ex.message || 'Could not send right now. Email matthew@porterhome.com directly.';
+          err.hidden = false;
+          btn.disabled = false; btn.textContent = 'Send';
+        }
       });
       </script>
     </section>
