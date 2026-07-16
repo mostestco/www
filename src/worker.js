@@ -1,8 +1,6 @@
 import { EmailMessage } from "cloudflare:email";
 
-// ponytail: send_email can only target a verified external mailbox, so
-// contactus@mostest.com is the public face and DEST is where it lands
-const DEST = "matthew@porterhome.com";
+const DEST = "contactus@mostest.com";
 const FROM = "contactus@mostest.com";
 
 export default {
