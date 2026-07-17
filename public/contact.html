@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — Mostest</title>
+<meta name="description" content="Describe the problem in a few sentences and get a direct reply. Three fields, no schedulers, no gatekeeping.">
+<link rel="canonical" href="https://mostest.com/contact">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Mostest">
+<meta property="og:description" content="Describe the problem in a few sentences and get a direct reply. Three fields, no schedulers, no gatekeeping.">
+<meta property="og:url" content="https://mostest.com/contact">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -12,7 +19,7 @@ a{color:#3BDCE0;text-decoration:none}
 a:hover{color:#8FEDEF}
 ::selection{background:#3A2564}
 input,textarea{font-family:'Source Sans 3',sans-serif}
-input::placeholder,textarea::placeholder{color:#6B5F86}
+input::placeholder,textarea::placeholder{color:#8E84A6}
 .nav-link{color:#F4F1FA}
 .nav-link:hover{color:#3BDCE0}
 .nav-active{color:#F4F1FA;border-bottom:2px solid #3BDCE0;padding-bottom:2px}
@@ -25,15 +32,15 @@ input::placeholder,textarea::placeholder{color:#6B5F86}
 <body>
 <div style="font-family:'Source Sans 3',sans-serif;min-height:100vh;display:flex;flex-direction:column">
   <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding:22px clamp(24px,6vw,72px);border-bottom:1px solid rgba(255,255,255,0.12)">
-    <a href="index.html" style="display:flex;align-items:center;gap:12px;color:#F4F1FA">
+    <a href="/" style="display:flex;align-items:center;gap:12px;color:#F4F1FA">
       <img src="assets/mostest-mark-white.svg" alt="Mostest mark" style="height:30px;width:auto;display:block">
       <span style="font-weight:600;font-size:16px;letter-spacing:0.32em">MOSTEST</span>
     </a>
     <nav style="display:flex;gap:clamp(16px,3vw,32px);font-size:15px">
-      <a href="advisory.html" class="nav-link">Advisory</a>
-      <a href="ventures.html" class="nav-link">Ventures</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="contact.html" class="nav-active">Contact</a>
+      <a href="/advisory" class="nav-link">Advisory</a>
+      <a href="/ventures" class="nav-link">Ventures</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-active">Contact</a>
     </nav>
   </header>
   <main style="flex:1;display:flex;align-items:center;background:radial-gradient(ellipse 70% 70% at 50% 30%, rgba(108,79,224,0.16), transparent 70%)">
@@ -45,7 +52,7 @@ input::placeholder,textarea::placeholder{color:#6B5F86}
         <p style="margin:0 0 6px;font-family:Bitter,serif;font-weight:600;font-size:20px;color:#FFFFFF">Message sent.</p>
         <p style="margin:0;font-size:15.5px;line-height:1.6;color:#C6BDD8">Thank you. You will get a direct reply, usually within one business day.</p>
       </div>
-      <form id="contact-form" style="display:flex;flex-direction:column;gap:18px;max-width:560px">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="display:flex;flex-direction:column;gap:18px;max-width:560px">
         <input type="hidden" name="access_key" value="9f5ae75e-c736-4829-aff6-fad766116c5a">
         <input type="hidden" name="subject" value="mostest.com contact form">
         <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px">
@@ -64,6 +71,7 @@ input::placeholder,textarea::placeholder{color:#6B5F86}
         <button type="submit" class="send">Send</button>
         <p id="send-error" hidden style="margin:0;font-size:15px;color:#F08CA8"></p>
       </form>
+      <p style="margin:28px 0 0;font-size:15px;color:#8E84A6">Prefer email? <a href="mailto:ping@mostest.com">ping@mostest.com</a></p>
       <script>
       document.getElementById('contact-form').addEventListener('submit', async function (e) {
         e.preventDefault();
@@ -76,7 +84,7 @@ input::placeholder,textarea::placeholder{color:#6B5F86}
           form.style.display = 'none';
           document.getElementById('sent-msg').hidden = false;
         } catch (ex) {
-          err.textContent = ex.message || 'Could not send right now. Email ping@mostest.com directly.';
+          err.textContent = 'Could not send right now. Email ping@mostest.com directly.';
           err.hidden = false;
           btn.disabled = false; btn.textContent = 'Send';
         }
@@ -85,7 +93,7 @@ input::placeholder,textarea::placeholder{color:#6B5F86}
     </section>
   </main>
   <footer style="border-top:1px solid rgba(255,255,255,0.12);padding:26px clamp(24px,6vw,72px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:14px;color:#8E84A6">
-    <img src="assets/mostest-mark-white.svg" alt="Mostest" style="height:22px;width:auto;opacity:0.85">
+    <img src="assets/mostest-mark-white.svg" alt="" style="height:22px;width:auto;opacity:0.85">
     <span>&copy; 2026 Mostest LLC</span>
   </footer>
 </div>
