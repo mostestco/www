@@ -1,6 +1,6 @@
 const SECURITY_HEADERS = {
   "Content-Security-Policy":
-    "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; img-src 'self' data:; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'",
+    "default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; img-src 'self' data:; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'; base-uri 'self'",
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
   "X-Content-Type-Options": "nosniff",
   "X-Frame-Options": "DENY",
