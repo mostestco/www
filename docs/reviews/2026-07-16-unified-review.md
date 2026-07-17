@@ -6,11 +6,14 @@
 - **Verify command:** `npx wrangler deploy --dry-run` (baseline: PASS)
 - **Test command:** none (no test framework in repo)
 
-> ⚠️ Codex partially delivered: its first run stalled (process died mid-run); the
-> retry completed with counts 0 Critical / 1 High / 15 Medium / 7 Low but its
-> sandbox blocked the report write, and a re-run is still in flight. Findings
-> below are Claude + controller sweeps, each validated against code; Codex
-> details will be merged if/when they land.
+> ⚠️ Codex unavailable — single-engine review, lower confidence.
+> Its first run stalled (worker process died mid-analysis); a retry completed
+> and reported counts (0 Critical / 1 High / 15 Medium / 7 Low) but a read-only
+> sandbox blocked its report write, and the follow-up re-run never delivered.
+> Findings below are Claude + controller sweeps, each validated against code.
+> The retry's severity profile is consistent with the confirmed findings (same
+> single High), suggesting no major class of issue was missed — but per-finding
+> Codex detail was never recovered.
 
 ## Summary
 
